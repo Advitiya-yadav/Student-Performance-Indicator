@@ -6,24 +6,29 @@ from src.exception import CustomException
 from src.logger import logging
 from src.utils import save_object,load_object
 
+from pathlib import Path
+
 class PredictPipeline:
     def __init__(self):
         pass
 
-    def predict(self,features):
+    def predict(self, features):
         try:
-            model_path='C:/Users/advit/Desktop/End-to-end Machine Learning Project/artifacts/model.pkl'
-            preprocessor_path='C:/Users/advit/Desktop/End-to-end Machine Learning Project/artifacts/preprocessor.pkl'
-            model=load_object(file_path=model_path)
-            preprocessor=load_object(file_path=preprocessor_path)
-        
-            #now we need to scale data first
+            root = Path.cwd()
 
-            scaled_data=preprocessor.transform(features)
-            prediction=model.predict(scaled_data)
+            model_path = root / "artifacts" / "model.pkl"
+            preprocessor_path = root / "artifacts" / "preprocessor.pkl"
+
+            model = load_object(file_path=model_path)
+            preprocessor = load_object(file_path=preprocessor_path)
+
+            scaled_data = preprocessor.transform(features)
+            prediction = model.predict(scaled_data)
             return prediction
+
         except Exception as e:
-            raise CustomException(e,sys)
+            raise CustomException(e, sys)
+
 
 
 class CustomData: #responsible for mapping all the inputs we give in the front end to the values in the backend
