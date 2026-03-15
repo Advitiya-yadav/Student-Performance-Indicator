@@ -2,8 +2,8 @@ streamlit
 pandas
 numpy
 scikit-learn==1.4.2
-catboost
-xgboost
+catboost==1.2.3
+xgboost==2.0.3
 Flask
 seaborn
 matplotlib
