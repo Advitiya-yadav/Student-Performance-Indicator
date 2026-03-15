@@ -4,9 +4,8 @@ numpy
 scikit-learn
 catboost
 xgboost
-
 Flask
 seaborn
 matplotlib
-pathlib
 joblib
+-e .
