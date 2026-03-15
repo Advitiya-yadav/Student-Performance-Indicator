@@ -11,8 +11,7 @@ if src_dir not in sys.path:
 
 import streamlit as st
 import pandas as pd
-from pipeline.predict_pipeline import PredictPipeline, CustomData
-
+from predict_pipeline import PredictPipeline, CustomData
 st.set_page_config(page_title="Student Performance Predictor", layout="centered")
 
 st.title("Student Performance Predictor 🧑‍🎓")
