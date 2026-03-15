@@ -1,13 +1,17 @@
 import sys
 import os
 
-# Ensure project root is in Python path (for Streamlit Cloud)
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
+root_dir = os.path.dirname(os.path.abspath(__file__))
+src_dir = os.path.join(root_dir, 'src')
+
+if root_dir not in sys.path:
+    sys.path.insert(0, root_dir)
+if src_dir not in sys.path:
+    sys.path.insert(0, src_dir)
 
 import streamlit as st
 import pandas as pd
-from src.pipeline.predict_pipeline import PredictPipeline, CustomData
-
+from pipeline.predict_pipeline import PredictPipeline, CustomData
 
 st.set_page_config(page_title="Student Performance Predictor", layout="centered")
 
@@ -15,8 +19,6 @@ st.title("Student Performance Predictor 🧑‍🎓")
 st.write("Enter student details to predict the Math score.")
 
 st.divider()
-
-# ---------------- INPUTS ---------------- #
 
 gender = st.selectbox("Gender", ["male", "female"])
 
@@ -49,10 +51,7 @@ writing = st.number_input("Writing Score", min_value=0, max_value=100, step=1)
 
 st.divider()
 
-# ---------------- PREDICTION ---------------- #
-
 if st.button("Predict Math Score"):
-
     try:
         data = CustomData(
             gender=gender,
