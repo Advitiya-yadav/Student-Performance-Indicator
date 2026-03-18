@@ -12,9 +12,9 @@ if src_dir not in sys.path:
 import streamlit as st
 import pandas as pd
 from predict_pipeline import PredictPipeline, CustomData
-st.set_page_config(page_title="Student Performance Predictor", layout="centered")
+st.set_page_config(page_title="ScoreSense", layout="centered")
 
-st.title("Student Performance Predictor 🧑‍🎓")
+st.title("ScoreSense🧑‍🎓")
 st.write("Enter student details to predict the Math score.")
 
 st.divider()
