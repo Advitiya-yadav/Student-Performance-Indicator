@@ -1,5 +1,7 @@
 # ScoreSense – Student Score Prediction System
 
+🚀 **[Live Demo](https://student-performance-indicator-8uacd9elzjfolenx6j4nbs.streamlit.app/)**
+
 ScoreSense is an end-to-end machine learning system that predicts a student's Math score based on demographic and academic input features.
 
 ---
@@ -7,7 +9,6 @@ ScoreSense is an end-to-end machine learning system that predicts a student's Ma
 ## 📌 Problem Statement
 
 Build a regression system that predicts the Math score of a student using:
-
 - Gender
 - Race / Ethnicity
 - Parental level of education
@@ -42,7 +43,6 @@ Build a regression system that predicts the Math score of a student using:
 ## ⚙️ Model Development
 
 Multiple regression models were evaluated:
-
 - Linear Regression
 - Ridge Regression
 - Random Forest Regressor
@@ -55,7 +55,6 @@ Multiple regression models were evaluated:
 ### 🏆 Best Model
 
 Ridge Regression achieved the best performance:
-
 - **R² Score: 0.88**
 - Evaluated on held-out test dataset
 
@@ -74,41 +73,53 @@ Ridge Regression achieved the best performance:
 
 ## 🌐 Deployment
 
-- Flask backend for prediction API
-- Streamlit-based interactive web interface
+- Flask backend for prediction API (`application.py`)
+- Streamlit-based interactive web interface (`streamlit_app.py`)
 - Docker-ready project structure
 
 ---
 
 ## 📂 Project Structure
+
+```
 student-performance-indicator/
 │
 ├── src/
-│ ├── components/
-│ ├── pipeline/
-│ │ ├── init.py
-│ │ ├── predict_pipeline.py
-│ │ └── train_pipeline.py
-│ ├── init.py
-│ ├── exception.py
-│ ├── logger.py
-│ └── utils.py
+│   ├── components/
+│   │   ├── __init__.py
+│   │   ├── data_ingestion.py
+│   │   ├── data_transformation.py
+│   │   └── model_trainer.py
+│   ├── pipeline/
+│   │   ├── __init__.py
+│   │   └── train_pipeline.py
+│   ├── __init__.py
+│   ├── exception.py
+│   ├── logger.py
+│   └── utils.py
+│
+├── notebook/
+│   ├── 1. EDA STUDENT PERFORMANCE.ipynb
+│   └── 2. MODEL TRAINING.ipynb
+│
+├── templates/
+│   ├── home.html
+│   └── index.html
 │
 ├── artifacts/
-├── templates/
 ├── logs/
-├── streamlit_app.py
+├── predict_pipeline.py
 ├── application.py
-├── requirements.txt
-├── setup.py
+├── streamlit_app.py
 ├── Dockerfile
+├── requirements.txt
 └── README.md
+```
 
 ---
 
 ## 🚀 Future Improvements
 
-- Hyperparameter tuning
 - Cross-validation enhancement
 - Model monitoring
 - Cloud deployment scaling
@@ -117,5 +128,5 @@ student-performance-indicator/
 
 ## 👨‍💻 Author
 
-Advitiya Yadav  
+Advitiya Yadav
 B.Tech Computer Science – NIT Goa
